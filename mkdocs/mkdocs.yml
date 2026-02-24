@@ -28,11 +28,11 @@ plugins:
         - zh
       prebuild_index: true
   - awesome-pages
-  - mkdocs-jupyter
+  # - mkdocs-jupyter
       # execute: false  # 先不在建站時執行筆記本
   - multiline_abbr
   - exclude:
-      glob: ['_*/**', '*_.md', '**/*稿*.*', 'includes/**', '**/*abbreviations.md']
+      glob: ['_*/**', '*_.md', '**/*稿*.*', 'includes/**', '**/*abbreviations.md', 'notebooks/**', 'jupyter/**']
 
 markdown_extensions:
   # 支援提示框
