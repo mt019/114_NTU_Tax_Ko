@@ -39,6 +39,8 @@ plugins:
       glob: ['_*/**', '*_.md', '**/*稿*.*', 'includes/**', '**/*abbreviations.md', 'notebooks/**', 'jupyter/**']
 
 markdown_extensions:
+  # 支援頁面 meta（SEO / 社群卡片）
+  - meta
   # 支援提示框
   - admonition
   - pymdownx.details
