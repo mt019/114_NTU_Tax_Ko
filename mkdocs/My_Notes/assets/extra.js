@@ -108,8 +108,9 @@
 
   function ensureToggleButton() {
     const inner = getPrimaryInner();
-    if (!inner) return;
-    let btn = inner.querySelector(".md-nav__toggle-all");
+    let btn =
+      (inner && inner.querySelector(".md-nav__toggle-all")) ||
+      document.querySelector(".md-nav__toggle-all");
     if (!btn) {
       btn = document.createElement("button");
       btn.type = "button";
@@ -119,7 +120,18 @@
         updateButtonState(btn);
         refreshAllToc();
       });
-      inner.prepend(btn);
+      if (inner) {
+        const primaryNav = inner.querySelector(".md-nav--primary");
+        const list = primaryNav && primaryNav.querySelector(".md-nav__list");
+        if (list && list.parentNode) {
+          list.parentNode.insertBefore(btn, list);
+        } else {
+          inner.prepend(btn);
+        }
+      } else {
+        btn.classList.add("md-nav__toggle-all--floating");
+        document.body.appendChild(btn);
+      }
     }
     updateButtonState(btn);
   }

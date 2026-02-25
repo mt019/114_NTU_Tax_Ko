@@ -34,11 +34,21 @@
   border: 1px solid #e2b8c6;
   border-radius: 6px;
   cursor: pointer;
+  position: sticky;
+  top: 0.5rem;
+  z-index: 1;
 }
 .md-nav__toggle-all:hover { background: #ffe9f2; }
 .md-nav__toggle-all[aria-pressed="true"] {
   background: #f8d5e4;
   border-color: #d998ad;
+}
+.md-nav__toggle-all--floating {
+  position: fixed;
+  top: 4rem;
+  left: 1rem;
+  z-index: 9999;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
 }
 
 
@@ -51,4 +61,3 @@
 .md-typeset h6 {
   font-weight: 700 !important; /* 700 = 粗體 */
 }
-
